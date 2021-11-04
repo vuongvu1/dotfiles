@@ -1,0 +1,17 @@
+# Gitlab
+Host gitlab.com
+  HostName gitlab.com
+  User hoangvuong.v99@gmail.com
+  UseKeychain yes
+  AddKeysToAgent yes
+  IdentityFile ~/.ssh/id_rsa_gitlab
+
+
+# Github
+Host github.com
+  HostName github.com
+  User hoangvuong.v99@gmail.com
+  UseKeychain yes
+  AddKeysToAgent yes
+  IdentityFile ~/.ssh/id_rsa_github
+
