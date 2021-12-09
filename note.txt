@@ -1,0 +1,3 @@
+
+- customize zsh cmd path:
+https://stackoverflow.com/questions/27885057/zsh-theme-for-full-path-display-git-changes
