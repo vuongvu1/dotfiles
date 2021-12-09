@@ -111,10 +111,10 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
+precmd() { print "" }
+
 alias pinggame="ping -q -n -s 0 -i 0.1 192.168.0.1"
 alias rs="sudo purge"
 alias ys="yarn start"
 alias yt="yarn test"
 alias yb="yarn build"
-
-
