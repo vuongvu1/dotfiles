@@ -110,15 +110,59 @@ export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
-
-precmd() { print "" }
-
-alias pinggame="ping -q -n -s 0 -i 0.1 192.168.0.1"
+alias pinggame="ping -q -n -s 0 -i 0.1 192.168.178.1"
 alias rs="sudo purge"
+
+alias gc="git commit"
+alias gcm="git commit -m"
+alias gp="git push"
+alias gf="git fetch -a"
+
 alias ys="yarn start"
 alias yt="yarn test"
 alias yb="yarn build"
 alias yd="yarn dev"
-alias yd2="yarn dev2"
-alias yv="yarn visual"
-alias ba="cd packages/system; yarn build; cd ...; cd packages/icons; yarn build; cd ...;  cd packages/core; yarn build; cd ...; cd packages/brands; yarn build; cd ...;"
+
+p() {
+  if [[ -f bun.lockb ]]; then
+    command bun "$@"
+  elif [[ -f pnpm-lock.yaml ]]; then
+    command pnpm "$@"
+  elif [[ -f yarn.lock ]]; then
+    command yarn "$@"
+  elif [[ -f package-lock.json ]]; then
+    command npm "$@"
+  else
+    command pnpm "$@"
+  fi
+}
+
+alias ps="p start"
+alias pt="p test"
+alias pb="p build"
+alias pd="p dev"
+alias pi="p install"
+
+source /Users/vuongvu/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+
+# pnpm
+export PNPM_HOME="/Users/vuongvu/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+
+# export OPENAI_API_KEY=
+
+
+
+
+PATH=~/.console-ninja/.bin:$PATH
